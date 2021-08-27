@@ -27,7 +27,7 @@ class OdooSession {
   final String userTz;
 
   /// Is internal user or not
-  final bool isSystem;
+  final bool? isSystem;
 
   /// Database name
   final String dbName;
@@ -67,7 +67,7 @@ class OdooSession {
       userName: info['name'] as String,
       userLang: ctx['lang'] as String,
       userTz: ctx['tz'] is String ? ctx['tz'] as String : 'UTC',
-      isSystem: info['is_system'] as bool,
+      isSystem: info['is_system'],
       dbName: info['db'] as String,
       serverVersion: versionInfo[0] as int,
     );
