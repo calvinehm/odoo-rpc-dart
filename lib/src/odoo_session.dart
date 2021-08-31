@@ -67,7 +67,7 @@ class OdooSession {
       userName: info['name'] as String,
       userLang: ctx['lang'] as String,
       userTz: ctx['tz'] is String ? ctx['tz'] as String : 'UTC',
-      isSystem: info['is_system'] == null? true : info['is_system'],
+      isSystem: info['is_system'] == null ? true : info['is_system'],
       dbName: info['db'] as String,
       serverVersion: versionInfo[0] as int,
     );
@@ -92,8 +92,12 @@ class OdooSession {
 
   /// Restore [OdooSession] from JSON
   static OdooSession fromJson(Map<String, dynamic> json) {
-    final _isSystem = json['isSystem'] == null? true : json['isSystem'];
-    final _userTz = json['userTz'] == null || !(json['userTz'] is String) || json['userTz'] == "" ? "UTC" : json["userTz];
+    final _isSystem = json['isSystem'] == null ? true : json['isSystem'];
+    final _userTz = json['userTz'] == null ||
+            !(json['userTz'] is String) ||
+            json['userTz'] == ""
+        ? "UTC"
+        : json["userTz"];
     return OdooSession(
       id: json['id'] as String,
       userId: json['userId'] as int,
