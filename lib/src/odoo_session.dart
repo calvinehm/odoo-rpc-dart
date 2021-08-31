@@ -67,7 +67,7 @@ class OdooSession {
       userName: info['name'] as String,
       userLang: ctx['lang'] as String,
       userTz: ctx['tz'] is String ? ctx['tz'] as String : 'UTC',
-      isSystem: info['is_system'] ?? false,
+      isSystem: (info['is_system'] ?? true),
       dbName: info['db'] as String,
       serverVersion: versionInfo[0] as int,
     );
@@ -101,7 +101,7 @@ class OdooSession {
       userName: json['userName'] as String,
       userLang: json['userLang'] as String,
       userTz: json['userTz'] as String,
-      isSystem: json['isSystem'] ?? false,
+      isSystem: (json['isSystem'] ?? true),
       dbName: json['dbName'] as String,
       serverVersion: json['serverVersion'] as int,
     );
