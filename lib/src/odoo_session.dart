@@ -92,6 +92,7 @@ class OdooSession {
 
   /// Restore [OdooSession] from JSON
   static OdooSession fromJson(Map<String, dynamic> json) {
+    final _isSystem = json['isSystem'] == null? true : json['isSystem'];
     return OdooSession(
       id: json['id'] as String,
       userId: json['userId'] as int,
@@ -101,7 +102,7 @@ class OdooSession {
       userName: json['userName'] as String,
       userLang: json['userLang'] as String,
       userTz: json['userTz'] as String,
-      isSystem: json['isSystem'] == null? true : json['isSystem'],
+      isSystem: _isSystem,
       dbName: json['dbName'] as String,
       serverVersion: json['serverVersion'] as int,
     );
