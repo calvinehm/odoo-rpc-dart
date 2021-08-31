@@ -45,7 +45,7 @@ class OdooSession {
     required this.userName,
     required this.userLang,
     required this.userTz,
-    required this.isSystem,
+    this.isSystem,
     required this.dbName,
     required this.serverVersion,
   });
