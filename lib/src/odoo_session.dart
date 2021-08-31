@@ -101,7 +101,7 @@ class OdooSession {
       userName: json['userName'] as String,
       userLang: json['userLang'] as String,
       userTz: json['userTz'] as String,
-      isSystem: json['isSystem'] as bool,
+      isSystem: json['isSystem'] as bool?,
       dbName: json['dbName'] as String,
       serverVersion: json['serverVersion'] as int,
     );
